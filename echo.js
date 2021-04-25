@@ -93,7 +93,7 @@ function photoSlider() {  ////Phase One
   div8.firstElementChild.id = 'photo8';
   div8.lastElementChild.id = 'title8';
   ///// Phase 2
-  //---Display Title----// 
+  //---Display Title----//
   var productNames = Object.keys(window.theme.recentlyViewed.recent);
   var titleDoms = [];
   var title1 = document.getElementById("title1");
@@ -108,7 +108,7 @@ function photoSlider() {  ////Phase One
   for (i = 0; i < titleDoms.length; i++) {
     titleDoms[i].innerHTML = productNames[i]
   }
-  //---Display Photo----// 
+  //---Display Photo----//
   var photoDoms = [];
   var photo1 = document.getElementById("photo1");
   var photo2 = document.getElementById("photo2");
@@ -130,24 +130,25 @@ function photoSlider() {  ////Phase One
   ////// Phase 3
   //---- Styling ----////
   function setWidth() {
-    photoCar.style.display = 'table';
+    photoCar.style.display = 'flex';
     photoCar.style.width = '100%';
+    photoCar.style.justifyContent = 'space-between';
     photoCar.style.overflow = 'hidden';
     photoCar.style.marginRight = '50px';
     photoCar.style.marginLeft = '50px;'
-    div1.style.display = 'table-cell';
-    div2.style.display = 'table-cell';
-    div3.style.display = 'table-cell';
-    div4.style.display = 'table-cell';
-    div5.style.display = 'table-cell';
-    div6.style.display = 'table-cell';
-    div7.style.display = 'table-cell';
-    div8.style.display = 'table-cell';
+    div1.style.margin = '0px 5px 0px 5px';
+    div2.style.margin = '0px 5px 0px 5px';
+    div3.style.margin = '0px 5px 0px 5px';
+    div4.style.margin = '0px 5px 0px 5px';
+    div5.style.margin = '0px 5px 0px 5px';
+    div6.style.margin = '0px 5px 0px 5px';
+    div7.style.margin = '0px 5px 0px 5px';
+    div8.style.margin = '0px 5px 0px 5px';
     for (i = 0; i < photoDoms.length; i++) {
       photoDoms[i].style.height = '250px';
-      photoDoms[i].style.width = '250px';
+      photoDoms[i].style.width = '100px';
       photoDoms[i].style.objectFit = 'cover'
-      photoDoms[i].style.padding = '5px 5px 5px 5px';
+      photoDoms[i].style.margin = '5px 5px 5px 5px';
     }
   }
   setWidth();
@@ -162,32 +163,17 @@ function photoSlider() {  ////Phase One
   buttonFor.textContent = 'forward';
   buttonDiv.firstElementChild.id = 'forward';
   var rightShift = document.getElementById('forward');
-  var size1 = div1.clientWidth;
-  var size2 = div2.clientWidth;
-  var size3 = div3.clientWidth;
-  var size4 = div4.clientWidth;
-  var size5 = div5.clientWidth;
-  var size6 = div6.clientWidth;
-  var size7 = div7.clientWidth;
-  var size8 = div8.clientWidth;
+  var size = 100;
   rightShift.addEventListener('click', function animate() {
-    div1.style.transform = 'translateX(-' + size1 + 'px)';
-    div2.style.transform = 'translateX(-' + size2 + 'px)';
-    div3.style.transform = 'translateX(-' + size3 + 'px)';
-    div4.style.transform = 'translateX(-' + size4 + 'px)';
-    div5.style.transform = 'translateX(-' + size5 + 'px)';
-    div6.style.transform = 'translateX(-' + size6 + 'px)';
-    div7.style.transform = 'translateX(-' + size7 + 'px)';
-    div8.style.transform = 'translateX(-' + size8 + 'px)';
-
-    size1 += 100;
-    size2 += 100;
-    size3 += 100;
-    size4 += 100;
-    size5 += 100;
-    size6 += 100;
-    size7 += 100;
-    size8 += 100;
+    div1.style.transform = 'translateX(-' + size + 'px)';
+    div2.style.transform = 'translateX(-' + size + 'px)';
+    div3.style.transform = 'translateX(-' + size + 'px)';
+    div4.style.transform = 'translateX(-' + size + 'px)';
+    div5.style.transform = 'translateX(-' + size + 'px)';
+    div6.style.transform = 'translateX(-' + size + 'px)';
+    div7.style.transform = 'translateX(-' + size + 'px)';
+    div8.style.transform = 'translateX(-' + size + 'px)';
+    size += 100;
 
   });
 
@@ -195,12 +181,13 @@ function photoSlider() {  ////Phase One
   function showButton(x) {
     if (x.matches) { // If media query matches
       rightShift.style.display = 'block';
+
     } else {
       rightShift.style.display = 'none';
     }
   }
-  
+
   var x = window.matchMedia("(max-width: 700px)")
-  showButton(x) // Call listener function at run time
+  showButton(x)
   x.addListener(showButton)
 }
