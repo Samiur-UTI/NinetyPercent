@@ -130,11 +130,19 @@ function photoSlider() {  ////Phase One
   ////// Phase 3
   //---- Styling ----////
   function setWidth() {
-    photoCar.style.display = 'flex';
-    photoCar.style.maxWidth = '400px';
+    photoCar.style.display = 'table';
+    photoCar.style.width = '100%';
     photoCar.style.overflow = 'hidden';
-    photoCar.style.border = '1px solid black';
-    photoCar.style.margin = '0px 100px 0px 450px';
+    photoCar.style.marginRight = '50px';
+    photoCar.style.marginLeft = '50px;'
+    div1.style.display = 'table-cell';
+    div2.style.display = 'table-cell';
+    div3.style.display = 'table-cell';
+    div4.style.display = 'table-cell';
+    div5.style.display = 'table-cell';
+    div6.style.display = 'table-cell';
+    div7.style.display = 'table-cell';
+    div8.style.display = 'table-cell';
     for (i = 0; i < photoDoms.length; i++) {
       photoDoms[i].style.height = '250px';
       photoDoms[i].style.width = '250px';
@@ -143,6 +151,56 @@ function photoSlider() {  ////Phase One
     }
   }
   setWidth();
+  var buttonPar = document.createElement('DIV');
+  el.appendChild(buttonPar);
+  el.lastElementChild.id = 'button-parent';
+  var buttonDiv = document.getElementById('button-parent');
+  var buttonFor = document.createElement('BUTTON');
+  var buttonBack = document.createElement('BUTTON');
+  buttonDiv.appendChild(buttonFor);
+  buttonDiv.appendChild(buttonBack);
+  buttonFor.textContent = 'forward';
+  buttonDiv.firstElementChild.id = 'forward';
+  var rightShift = document.getElementById('forward');
+  var size1 = div1.clientWidth;
+  var size2 = div2.clientWidth;
+  var size3 = div3.clientWidth;
+  var size4 = div4.clientWidth;
+  var size5 = div5.clientWidth;
+  var size6 = div6.clientWidth;
+  var size7 = div7.clientWidth;
+  var size8 = div8.clientWidth;
+  rightShift.addEventListener('click', function animate() {
+    div1.style.transform = 'translateX(-' + size1 + 'px)';
+    div2.style.transform = 'translateX(-' + size2 + 'px)';
+    div3.style.transform = 'translateX(-' + size3 + 'px)';
+    div4.style.transform = 'translateX(-' + size4 + 'px)';
+    div5.style.transform = 'translateX(-' + size5 + 'px)';
+    div6.style.transform = 'translateX(-' + size6 + 'px)';
+    div7.style.transform = 'translateX(-' + size7 + 'px)';
+    div8.style.transform = 'translateX(-' + size8 + 'px)';
+
+    size1 += 100;
+    size2 += 100;
+    size3 += 100;
+    size4 += 100;
+    size5 += 100;
+    size6 += 100;
+    size7 += 100;
+    size8 += 100;
+
+  });
+
   //---Animation---//
+  function showButton(x) {
+    if (x.matches) { // If media query matches
+      rightShift.style.display = 'block';
+    } else {
+      rightShift.style.display = 'none';
+    }
+  }
   
+  var x = window.matchMedia("(max-width: 700px)")
+  showButton(x) // Call listener function at run time
+  x.addListener(showButton)
 }
