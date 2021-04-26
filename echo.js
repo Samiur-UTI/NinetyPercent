@@ -152,29 +152,85 @@ function photoSlider() {  ////Phase One
     }
   }
   setWidth();
-  var buttonPar = document.createElement('DIV');
-  el.appendChild(buttonPar);
-  el.lastElementChild.id = 'button-parent';
-  var buttonDiv = document.getElementById('button-parent');
-  var buttonFor = document.createElement('BUTTON');
-  var buttonBack = document.createElement('BUTTON');
-  buttonDiv.appendChild(buttonFor);
-  buttonDiv.appendChild(buttonBack);
-  buttonFor.textContent = 'forward';
-  buttonDiv.firstElementChild.id = 'forward';
+  createButton();
+  function createButton(){
+    var buttonPar = document.createElement('DIV');
+    el.appendChild(buttonPar);
+    el.lastElementChild.id = 'button-parent';
+    var buttonDiv = document.getElementById('button-parent');
+    var buttonFor = document.createElement('BUTTON');
+    var buttonBack = document.createElement('BUTTON');
+    buttonDiv.style.background = 'white';
+    buttonDiv.style.margin = '0 -0.5rem 0 -o.5rem';
+    buttonDiv.style.float = 'right';
+    buttonDiv.style.display = 'flex';
+    buttonDiv.style.justifyContent = 'center';
+    buttonDiv.appendChild(buttonBack);
+    buttonDiv.appendChild(buttonFor);
+    buttonBack.textContent ='Previous';
+    buttonFor.textContent = 'Next';
+    buttonDiv.firstElementChild.id = 'backward';
+    buttonDiv.lastElementChild.id = 'forward';
+    var rightShift = document.getElementById('forward');
+    var leftShift = document.getElementById('backward');
+    rightShift.style.border = '0.125em solid black';
+    rightShift.style.cursor = 'pointer';
+    leftShift.style.border = '0.125em solid black';
+    leftShift.style.cursor = 'pointer';
+    
+  }
   var rightShift = document.getElementById('forward');
-  var size = 100;
-  rightShift.addEventListener('click', function animate() {
-    div1.style.transform = 'translateX(-' + size + 'px)';
-    div2.style.transform = 'translateX(-' + size + 'px)';
-    div3.style.transform = 'translateX(-' + size + 'px)';
-    div4.style.transform = 'translateX(-' + size + 'px)';
-    div5.style.transform = 'translateX(-' + size + 'px)';
-    div6.style.transform = 'translateX(-' + size + 'px)';
-    div7.style.transform = 'translateX(-' + size + 'px)';
-    div8.style.transform = 'translateX(-' + size + 'px)';
-    size += 100;
+  var leftShift = document.getElementById('backward');
+  var counter = 1;
+  var size1 = div1.clientWidth;
+  var size2 = div1.clientWidth;
+  var size3 = div1.clientWidth;
+  var size4 = div1.clientWidth;
+  var size5 = div1.clientWidth;
+  var size6 = div1.clientWidth;
+  var size7 = div1.clientWidth;
+  var size8 = div1.clientWidth;
 
+  leftShift.addEventListener('click', function animate() {
+    if(counter>1){
+      div1.style.transition = "transform 0.1s ease-in-out";
+      div2.style.transition = "transform 0.1s ease-in-out";
+      div3.style.transition = "transform 0.1s ease-in-out";
+      div4.style.transition = "transform 0.1s ease-in-out";
+      div5.style.transition = "transform 0.1s ease-in-out";
+      div6.style.transition = "transform 0.1s ease-in-out";
+      div7.style.transition = "transform 0.1s ease-in-out";
+      div8.style.transition = "transform 0.1s ease-in-out";
+      counter--;    
+      div1.style.transform = 'translateX(' + (-size1*counter) + 'px)';
+      div2.style.transform = 'translateX(' + (-size2*counter) + 'px)';
+      div3.style.transform = 'translateX(' + (-size3*counter) + 'px)';
+      div4.style.transform = 'translateX(' + (-size4*counter) + 'px)';
+      div5.style.transform = 'translateX(' + (-size5*counter) + 'px)';
+      div6.style.transform = 'translateX(' + (-size6*counter) + 'px)';
+      div7.style.transform = 'translateX(' + (-size7*counter) + 'px)';
+      div8.style.transform = 'translateX(' + (-size8*counter) + 'px)';
+    }  
+  });
+  rightShift.addEventListener('click', function animate() {
+      div1.style.transition = "transform 0.1s ease-in-out";
+      div2.style.transition = "transform 0.1s ease-in-out";
+      div3.style.transition = "transform 0.1s ease-in-out";
+      div4.style.transition = "transform 0.1s ease-in-out";
+      div5.style.transition = "transform 0.1s ease-in-out";
+      div6.style.transition = "transform 0.1s ease-in-out";
+      div7.style.transition = "transform 0.1s ease-in-out";
+      div8.style.transition = "transform 0.1s ease-in-out";
+      counter++;    
+      div1.style.transform = 'translateX(' + (-size1*counter) + 'px)';
+      div2.style.transform = 'translateX(' + (-size2*counter) + 'px)';
+      div3.style.transform = 'translateX(' + (-size3*counter) + 'px)';
+      div4.style.transform = 'translateX(' + (-size4*counter) + 'px)';
+      div5.style.transform = 'translateX(' + (-size5*counter) + 'px)';
+      div6.style.transform = 'translateX(' + (-size6*counter) + 'px)';
+      div7.style.transform = 'translateX(' + (-size7*counter) + 'px)';
+      div8.style.transform = 'translateX(' + (-size8*counter) + 'px)';
+      
   });
 
   //---Animation---//
