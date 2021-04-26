@@ -1,9 +1,16 @@
 function photoSlider() {  ////Phase One
   var slider = document.createElement("DIV");
+  var header = document.createElement("H3");
   var el = document.getElementById('shopify-section-footer-promotions');
-  el.appendChild(slider)
-  el.firstElementChild.id = 'caraousel';
+  el.appendChild(header);
+  el.appendChild(slider);
+  el.firstElementChild.id = 'header';
+  el.lastElementChild.id = 'caraousel';
   var photoCar = document.getElementById("caraousel");
+  var header = document.getElementById("header");
+  header.textContent = 'RECENTLY VIEWED';
+  header.style.textAlign = 'center';
+  header.style.width = '100%';
   //One
   var one = document.createElement("DIV");
   photoCar.appendChild(one)
@@ -94,7 +101,8 @@ function photoSlider() {  ////Phase One
   div8.lastElementChild.id = 'title8';
   ///// Phase 2
   //---Display Title----//
-  var productNames = Object.keys(window.theme.recentlyViewed.recent);
+  var productNamesUnordered = Object.keys(window.theme.recentlyViewed.recent);
+  var productNames = productNamesUnordered.reverse();
   var titleDoms = [];
   var title1 = document.getElementById("title1");
   var title2 = document.getElementById("title2");
@@ -120,7 +128,8 @@ function photoSlider() {  ////Phase One
   var photo8 = document.getElementById("photo8");
 
   photoDoms.push(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8);
-  var productImages = Object.values(window.theme.recentlyViewed.recent);
+  var productImagesUnordered = Object.values(window.theme.recentlyViewed.recent);
+  var productImages = productImagesUnordered.reverse();
   function displayProduct() {
     for (i = 0; i < photoDoms.length; i++) {
       photoDoms[i].src = productImages[i].featuredImage.replace('{width}', '300');
@@ -153,7 +162,7 @@ function photoSlider() {  ////Phase One
   }
   setWidth();
   createButton();
-  function createButton(){
+  function createButton() {
     var buttonPar = document.createElement('DIV');
     el.appendChild(buttonPar);
     el.lastElementChild.id = 'button-parent';
@@ -167,7 +176,7 @@ function photoSlider() {  ////Phase One
     buttonDiv.style.justifyContent = 'center';
     buttonDiv.appendChild(buttonBack);
     buttonDiv.appendChild(buttonFor);
-    buttonBack.textContent ='Previous';
+    buttonBack.textContent = 'Previous';
     buttonFor.textContent = 'Next';
     buttonDiv.firstElementChild.id = 'backward';
     buttonDiv.lastElementChild.id = 'forward';
@@ -177,7 +186,7 @@ function photoSlider() {  ////Phase One
     rightShift.style.cursor = 'pointer';
     leftShift.style.border = '0.125em solid black';
     leftShift.style.cursor = 'pointer';
-    
+
   }
   //---Animation---//
   var rightShift = document.getElementById('forward');
@@ -193,7 +202,7 @@ function photoSlider() {  ////Phase One
   var size8 = div1.clientWidth;
 
   leftShift.addEventListener('click', function animate() {
-    if(counter){
+    if (counter) {
       div1.style.transition = "transform 0.1s ease-in-out";
       div2.style.transition = "transform 0.1s ease-in-out";
       div3.style.transition = "transform 0.1s ease-in-out";
@@ -202,21 +211,21 @@ function photoSlider() {  ////Phase One
       div6.style.transition = "transform 0.1s ease-in-out";
       div7.style.transition = "transform 0.1s ease-in-out";
       div8.style.transition = "transform 0.1s ease-in-out";
-      counter--;    
-      div1.style.transform = 'translateX(' + (-size1*counter) + 'px)';
-      div2.style.transform = 'translateX(' + (-size2*counter) + 'px)';
-      div3.style.transform = 'translateX(' + (-size3*counter) + 'px)';
-      div4.style.transform = 'translateX(' + (-size4*counter) + 'px)';
-      div5.style.transform = 'translateX(' + (-size5*counter) + 'px)';
-      div6.style.transform = 'translateX(' + (-size6*counter) + 'px)';
-      div7.style.transform = 'translateX(' + (-size7*counter) + 'px)';
-      div8.style.transform = 'translateX(' + (-size8*counter) + 'px)';
+      counter--;
+      div1.style.transform = 'translateX(' + (-size1 * counter) + 'px)';
+      div2.style.transform = 'translateX(' + (-size2 * counter) + 'px)';
+      div3.style.transform = 'translateX(' + (-size3 * counter) + 'px)';
+      div4.style.transform = 'translateX(' + (-size4 * counter) + 'px)';
+      div5.style.transform = 'translateX(' + (-size5 * counter) + 'px)';
+      div6.style.transform = 'translateX(' + (-size6 * counter) + 'px)';
+      div7.style.transform = 'translateX(' + (-size7 * counter) + 'px)';
+      div8.style.transform = 'translateX(' + (-size8 * counter) + 'px)';
       console.log(counter)
     }
-      
+
   });
   rightShift.addEventListener('click', function animate() {
-    if(counter <=6){
+    if (counter < 6) {
       div1.style.transition = "transform 0.1s ease-in-out";
       div2.style.transition = "transform 0.1s ease-in-out";
       div3.style.transition = "transform 0.1s ease-in-out";
@@ -225,15 +234,15 @@ function photoSlider() {  ////Phase One
       div6.style.transition = "transform 0.1s ease-in-out";
       div7.style.transition = "transform 0.1s ease-in-out";
       div8.style.transition = "transform 0.1s ease-in-out";
-      counter++;    
-      div1.style.transform = 'translateX(' + (-size1*counter) + 'px)';
-      div2.style.transform = 'translateX(' + (-size2*counter) + 'px)';
-      div3.style.transform = 'translateX(' + (-size3*counter) + 'px)';
-      div4.style.transform = 'translateX(' + (-size4*counter) + 'px)';
-      div5.style.transform = 'translateX(' + (-size5*counter) + 'px)';
-      div6.style.transform = 'translateX(' + (-size6*counter) + 'px)';
-      div7.style.transform = 'translateX(' + (-size7*counter) + 'px)';
-      div8.style.transform = 'translateX(' + (-size8*counter) + 'px)';
+      counter++;
+      div1.style.transform = 'translateX(' + (-size1 * counter) + 'px)';
+      div2.style.transform = 'translateX(' + (-size2 * counter) + 'px)';
+      div3.style.transform = 'translateX(' + (-size3 * counter) + 'px)';
+      div4.style.transform = 'translateX(' + (-size4 * counter) + 'px)';
+      div5.style.transform = 'translateX(' + (-size5 * counter) + 'px)';
+      div6.style.transform = 'translateX(' + (-size6 * counter) + 'px)';
+      div7.style.transform = 'translateX(' + (-size7 * counter) + 'px)';
+      div8.style.transform = 'translateX(' + (-size8 * counter) + 'px)';
       console.log(counter)
     }
   });
