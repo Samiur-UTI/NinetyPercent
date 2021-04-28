@@ -1,17 +1,52 @@
 function photoSlider() {
   ////Phase One
   var slider = document.createElement("DIV");
-  var header = document.createElement("H3");
+  var arrows = document.createElement("DIV");
+  var title = document.createElement("H3");
   var el = document.getElementById('shopify-section-footer-promotions');
-  el.appendChild(header);
+  el.appendChild(title);
+  el.appendChild(arrows);
   el.appendChild(slider);
-  el.firstElementChild.id = 'header';
-  el.lastElementChild.id = 'caraousel';
+  var allElements = Array.from(el.children);
+  
+  allElements[0].id = 'header';
+  allElements[1].id = 'arrows';
+  allElements[2].id = 'caraousel';
   var photoCar = document.getElementById("caraousel");
   var header = document.getElementById("header");
+  var navigation = document.getElementById("arrows");
   header.textContent = 'RECENTLY VIEWED';
   header.style.textAlign = 'center';
   header.style.width = '100%';
+  createButton();
+  function createButton() {
+    var buttonPar = document.createElement('DIV');
+    navigation.appendChild(buttonPar);
+    navigation.firstElementChild.id = 'button-parent';
+    var buttonDiv = document.getElementById('button-parent');
+    var buttonFor = document.createElement('BUTTON');
+    var buttonBack = document.createElement('BUTTON');
+    buttonDiv.style.background = 'white';
+    buttonDiv.style.margin = '0 -0.5rem 0 -o.5rem';
+    buttonDiv.style.float = 'left';
+    buttonDiv.style.display = 'flex';
+    buttonDiv.style.justifyContent = 'center';
+    buttonDiv.appendChild(buttonBack);
+    buttonDiv.appendChild(buttonFor);
+    buttonBack.textContent = '<';
+    buttonFor.textContent = '>';
+    buttonDiv.firstElementChild.id = 'backward';
+    buttonDiv.lastElementChild.id = 'forward';
+    var rightShift = document.getElementById('forward');
+    var leftShift = document.getElementById('backward');
+    rightShift.style.border = '0.125em solid black';
+    rightShift.style.borderRadius = '5px';
+    rightShift.style.cursor = 'pointer';
+    leftShift.style.border = '0.125em solid black';
+    leftShift.style.borderRadius = '5px';
+    leftShift.style.cursor = 'pointer';
+
+  }
   //One
   var one = document.createElement("DIV");
   photoCar.appendChild(one)
@@ -155,35 +190,7 @@ function photoSlider() {
     }
   }
   setWidth();
-  createButton();
-  function createButton() {
-    var buttonPar = document.createElement('DIV');
-    el.appendChild(buttonPar);
-    el.lastElementChild.id = 'button-parent';
-    var buttonDiv = document.getElementById('button-parent');
-    var buttonFor = document.createElement('BUTTON');
-    var buttonBack = document.createElement('BUTTON');
-    buttonDiv.style.background = 'white';
-    buttonDiv.style.margin = '0 -0.5rem 0 -o.5rem';
-    buttonDiv.style.float = 'left';
-    buttonDiv.style.display = 'flex';
-    buttonDiv.style.justifyContent = 'center';
-    buttonDiv.appendChild(buttonBack);
-    buttonDiv.appendChild(buttonFor);
-    buttonBack.textContent = '<';
-    buttonFor.textContent = '>';
-    buttonDiv.firstElementChild.id = 'backward';
-    buttonDiv.lastElementChild.id = 'forward';
-    var rightShift = document.getElementById('forward');
-    var leftShift = document.getElementById('backward');
-    rightShift.style.border = '0.125em solid black';
-    rightShift.style.borderRadius = '5px';
-    rightShift.style.cursor = 'pointer';
-    leftShift.style.border = '0.125em solid black';
-    leftShift.style.borderRadius = '5px';
-    leftShift.style.cursor = 'pointer';
-
-  }
+  
   //---Animation---//
   var rightShift = document.getElementById('forward');
   var leftShift = document.getElementById('backward');
