@@ -25,32 +25,37 @@ function photoSlider() {
     navigation.appendChild(buttonPar);
     navigation.firstElementChild.id = 'button-parent';
     var parentButton = document.getElementById('button-parent');
-    parentButton.style.marginBottom = '2.5%';
+    parentButton.style.marginBottom = '5%';
+    parentButton.style.display = 'flex';
+    parentButton.style.justifyContent = 'space-between';
+    parentButton.style.alignItems = 'center';
     var buttonDiv = document.getElementById('button-parent');
     var buttonFor = document.createElement('A');
     var buttonBack = document.createElement('A');
     buttonDiv.style.background = 'white';
-    buttonDiv.style.margin = '0 -0.5rem 0 -o.5rem';
+    buttonDiv.style.margin = '0 -0.5rem 1.5rem -o.5rem';
     buttonDiv.style.float = 'right';
     buttonDiv.style.display = 'flex';
     buttonDiv.style.justifyContent = 'center';
+    buttonDiv.style.marginRight = '2%';
     buttonDiv.appendChild(buttonBack);
     buttonDiv.appendChild(buttonFor);
     buttonDiv.firstElementChild.id = 'backward';
     buttonDiv.lastElementChild.id = 'forward';
     var rightShift = document.getElementById('forward');
     var leftShift = document.getElementById('backward');
-    rightShift.style.width = '0';
-    rightShift.style.height = '0';
-    rightShift.style.borderTop = '0.5rem solid transparent';
-    rightShift.style.borderLeft = '1.5rem solid #1a001a';
-    rightShift.style.borderBottom = '0.5rem solid transparent';
+    rightShift.style.width = '1rem';
+    rightShift.style.height = '1rem';
+    rightShift.style.borderLeft = '0.15rem solid #1a001a';
+    rightShift.style.borderBottom = '0.15rem solid #1a001a';
+    rightShift.style.transform = 'rotate(-135deg)'
     rightShift.style.marginLeft = '0.3rem';
-    leftShift.style.width = '0';
-    leftShift.style.height = '0';
-    leftShift.style.borderTop = '0.5rem solid transparent';
-    leftShift.style.borderRight = '1.5rem solid #1a001a';
-    leftShift.style.borderBottom = '0.5rem solid transparent';
+    leftShift.style.width = '1rem';
+    leftShift.style.height = '1rem';
+    leftShift.style.borderTop = '0.15rem solid #1a001a';
+    leftShift.style.borderRight = '0.15rem solid #1a001a';
+    leftShift.style.borderBottom = '0.25rem solid transparent';
+    leftShift.style.transform = 'rotate(-130deg)'
     leftShift.style.marginRight = '0.3rem'
   }
   //One
