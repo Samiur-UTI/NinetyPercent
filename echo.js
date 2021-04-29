@@ -25,8 +25,8 @@ function photoSlider() {
     navigation.appendChild(buttonPar);
     navigation.firstElementChild.id = 'button-parent';
     var buttonDiv = document.getElementById('button-parent');
-    var buttonFor = document.createElement('BUTTON');
-    var buttonBack = document.createElement('BUTTON');
+    var buttonFor = document.createElement('A');
+    var buttonBack = document.createElement('A');
     buttonDiv.style.background = 'white';
     buttonDiv.style.margin = '0 -0.5rem 0 -o.5rem';
     buttonDiv.style.float = 'right';
@@ -34,20 +34,35 @@ function photoSlider() {
     buttonDiv.style.justifyContent = 'center';
     buttonDiv.appendChild(buttonBack);
     buttonDiv.appendChild(buttonFor);
-    buttonBack.textContent = '<';
-    buttonFor.textContent = '>';
     buttonDiv.firstElementChild.id = 'backward';
     buttonDiv.lastElementChild.id = 'forward';
     var rightShift = document.getElementById('forward');
     var leftShift = document.getElementById('backward');
-    rightShift.style.border = '0.125em solid black';
-    rightShift.style.borderRadius = '5px';
-    rightShift.style.cursor = 'pointer';
-    rightShift.style.fontWeight = '400';
-    leftShift.style.border = '0.125em solid black';
-    leftShift.style.borderRadius = '5px';
-    leftShift.style.cursor = 'pointer';
-    leftShift.style.fontWeight = '400';
+    rightShift.style.width = '0';
+    rightShift.style.height = '0';
+    rightShift.style.borderTop = '50px solid transparent';
+    rightShift.style.borderLeft = '100px solid red';
+    rightShift.style.borderBottom = '50px solid transparent'
+    // rightShift.style.width = '1.5rem';
+    // rightShift.style.height = '1.5rem';
+    // rightShift.style.transition = '0.5s';
+    // rightShift.style.boxShadow = '-2px 2px 0 black;';
+    // rightShift.style.transition = 'transform: rotate(-135deg);'
+    // leftShift.style.width = '1.5rem';
+    // leftShift.style.height = '1.5rem';
+    // leftShift.style.transition = '0.5s';
+    // leftShift.style.boxShadow = '-2px 2px 0 black;'
+    // leftShift.style.transition = 'rotate(45deg);';
+    // rightShift.style.border = '0.125rem solid black';
+    // rightShift.style.borderRadius = '50%';
+    // rightShift.style.cursor = 'pointer';
+    // rightShift.style.fontWeight = '400';
+    // leftShift.style.border = '0.125rem solid black';
+    // leftShift.style.borderRadius = '50%';
+    // leftShift.style.cursor = 'pointer';
+    // leftShift.style.fontWeight = '400';
+    // rightShift.textContent = '>';
+    // leftShift.textContent = '<';
   }
   //One
   var one = document.createElement("DIV");
