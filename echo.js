@@ -24,6 +24,8 @@ function photoSlider() {
     var buttonPar = document.createElement('DIV');
     navigation.appendChild(buttonPar);
     navigation.firstElementChild.id = 'button-parent';
+    var parentButton = document.getElementById('button-parent');
+    parentButton.style.marginBottom = '2.5%';
     var buttonDiv = document.getElementById('button-parent');
     var buttonFor = document.createElement('A');
     var buttonBack = document.createElement('A');
@@ -40,29 +42,16 @@ function photoSlider() {
     var leftShift = document.getElementById('backward');
     rightShift.style.width = '0';
     rightShift.style.height = '0';
-    rightShift.style.borderTop = '50px solid transparent';
-    rightShift.style.borderLeft = '100px solid red';
-    rightShift.style.borderBottom = '50px solid transparent'
-    // rightShift.style.width = '1.5rem';
-    // rightShift.style.height = '1.5rem';
-    // rightShift.style.transition = '0.5s';
-    // rightShift.style.boxShadow = '-2px 2px 0 black;';
-    // rightShift.style.transition = 'transform: rotate(-135deg);'
-    // leftShift.style.width = '1.5rem';
-    // leftShift.style.height = '1.5rem';
-    // leftShift.style.transition = '0.5s';
-    // leftShift.style.boxShadow = '-2px 2px 0 black;'
-    // leftShift.style.transition = 'rotate(45deg);';
-    // rightShift.style.border = '0.125rem solid black';
-    // rightShift.style.borderRadius = '50%';
-    // rightShift.style.cursor = 'pointer';
-    // rightShift.style.fontWeight = '400';
-    // leftShift.style.border = '0.125rem solid black';
-    // leftShift.style.borderRadius = '50%';
-    // leftShift.style.cursor = 'pointer';
-    // leftShift.style.fontWeight = '400';
-    // rightShift.textContent = '>';
-    // leftShift.textContent = '<';
+    rightShift.style.borderTop = '0.5rem solid transparent';
+    rightShift.style.borderLeft = '1.5rem solid #1a001a';
+    rightShift.style.borderBottom = '0.5rem solid transparent';
+    rightShift.style.marginLeft = '0.3rem';
+    leftShift.style.width = '0';
+    leftShift.style.height = '0';
+    leftShift.style.borderTop = '0.5rem solid transparent';
+    leftShift.style.borderRight = '1.5rem solid #1a001a';
+    leftShift.style.borderBottom = '0.5rem solid transparent';
+    leftShift.style.marginRight = '0.3rem'
   }
   //One
   var one = document.createElement("DIV");
@@ -223,14 +212,14 @@ function photoSlider() {
     var size7 = div1.clientWidth;
     var size8 = div1.clientWidth;
     if (counter) {
-      div1.style.transition = "transform 0.1s ease-in-out";
-      div2.style.transition = "transform 0.1s ease-in-out";
-      div3.style.transition = "transform 0.1s ease-in-out";
-      div4.style.transition = "transform 0.1s ease-in-out";
-      div5.style.transition = "transform 0.1s ease-in-out";
-      div6.style.transition = "transform 0.1s ease-in-out";
-      div7.style.transition = "transform 0.1s ease-in-out";
-      div8.style.transition = "transform 0.1s ease-in-out";
+      div1.style.transition = "transform 0.5s ease-in-out";
+      div2.style.transition = "transform 0.5s ease-in-out";
+      div3.style.transition = "transform 0.5s ease-in-out";
+      div4.style.transition = "transform 0.5s ease-in-out";
+      div5.style.transition = "transform 0.5s ease-in-out";
+      div6.style.transition = "transform 0.5s ease-in-out";
+      div7.style.transition = "transform 0.5s ease-in-out";
+      div8.style.transition = "transform 0.5s ease-in-out";
       counter--;
       div1.style.transform = 'translateX(' + (-size1 * counter) + 'px)';
       div2.style.transform = 'translateX(' + (-size2 * counter) + 'px)';
@@ -252,15 +241,15 @@ function photoSlider() {
     var size6 = div1.clientWidth;
     var size7 = div1.clientWidth;
     var size8 = div1.clientWidth;
-    if (counter <= 5) {
-      div1.style.transition = "transform 0.1s ease-in-out";
-      div2.style.transition = "transform 0.1s ease-in-out";
-      div3.style.transition = "transform 0.1s ease-in-out";
-      div4.style.transition = "transform 0.1s ease-in-out";
-      div5.style.transition = "transform 0.1s ease-in-out";
-      div6.style.transition = "transform 0.1s ease-in-out";
-      div7.style.transition = "transform 0.1s ease-in-out";
-      div8.style.transition = "transform 0.1s ease-in-out";
+    if (counter <= 6) {
+      div1.style.transition = "transform 0.5s ease-in-out";
+      div2.style.transition = "transform 0.5s ease-in-out";
+      div3.style.transition = "transform 0.5s ease-in-out";
+      div4.style.transition = "transform 0.5s ease-in-out";
+      div5.style.transition = "transform 0.5s ease-in-out";
+      div6.style.transition = "transform 0.5s ease-in-out";
+      div7.style.transition = "transform 0.5s ease-in-out";
+      div8.style.transition = "transform 0.5s ease-in-out";
       counter++;
       div1.style.transform = 'translateX(' + (-size1 * counter) + 'px)';
       div2.style.transform = 'translateX(' + (-size2 * counter) + 'px)';
