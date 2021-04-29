@@ -4,11 +4,12 @@ function photoSlider() {
   var arrows = document.createElement("DIV");
   var title = document.createElement("H3");
   var el = document.getElementById('shopify-section-footer-promotions');
+  el.style.marginBottom = '10%';
   el.appendChild(title);
   el.appendChild(arrows);
   el.appendChild(slider);
   var allElements = Array.from(el.children);
-  
+
   allElements[0].id = 'header';
   allElements[1].id = 'arrows';
   allElements[2].id = 'caraousel';
@@ -28,7 +29,7 @@ function photoSlider() {
     var buttonBack = document.createElement('BUTTON');
     buttonDiv.style.background = 'white';
     buttonDiv.style.margin = '0 -0.5rem 0 -o.5rem';
-    buttonDiv.style.float = 'left';
+    buttonDiv.style.float = 'right';
     buttonDiv.style.display = 'flex';
     buttonDiv.style.justifyContent = 'center';
     buttonDiv.appendChild(buttonBack);
@@ -42,10 +43,11 @@ function photoSlider() {
     rightShift.style.border = '0.125em solid black';
     rightShift.style.borderRadius = '5px';
     rightShift.style.cursor = 'pointer';
+    rightShift.style.fontWeight = '400';
     leftShift.style.border = '0.125em solid black';
     leftShift.style.borderRadius = '5px';
     leftShift.style.cursor = 'pointer';
-
+    leftShift.style.fontWeight = '400';
   }
   //One
   var one = document.createElement("DIV");
@@ -150,7 +152,9 @@ function photoSlider() {
   var title8 = document.getElementById("title8");
   titleDoms.push(title1, title2, title3, title4, title5, title6, title7, title8);
   for (i = 0; i < titleDoms.length; i++) {
-    titleDoms[i].innerHTML = productNames[i]
+    titleDoms[i].innerHTML = productNames[i];
+    titleDoms[i].style.textAlign = 'center';
+    titleDoms[i].style.fontSize = '0.6rem'
   }
   //---Display Photo----//
   var photoDoms = [];
@@ -175,36 +179,34 @@ function photoSlider() {
   ////// Phase 3
   //---- Styling ----////
   function setWidth() {
-    photoCar.style.display = 'flex';
     photoCar.style.width = '100%';
-    photoCar.style.justifyContent = 'space-between';
-    photoCar.style.overflow = 'hidden';
     photoCar.style.marginRight = '50px';
-    photoCar.style.marginLeft = '50px;'
+    photoCar.style.marginLeft = '50px;';
+    photoCar.style.marginBottom = '50px;';
 
     for (i = 0; i < photoDoms.length; i++) {
-      photoDoms[i].style.height = '250px';
-      photoDoms[i].style.width = '100px';
-      photoDoms[i].style.objectFit = 'cover'
-      photoDoms[i].style.margin = '5px 5px 5px 5px';
+      photoDoms[i].style.height = '100%';
+      photoDoms[i].style.width = '100%';
+      photoDoms[i].style.objectFit = 'cover';
     }
   }
   setWidth();
-  
+
   //---Animation---//
   var rightShift = document.getElementById('forward');
   var leftShift = document.getElementById('backward');
   var counter = 1;
-  var size1 = div1.clientWidth;
-  var size2 = div1.clientWidth;
-  var size3 = div1.clientWidth;
-  var size4 = div1.clientWidth;
-  var size5 = div1.clientWidth;
-  var size6 = div1.clientWidth;
-  var size7 = div1.clientWidth;
-  var size8 = div1.clientWidth;
+
 
   leftShift.addEventListener('click', function animate() {
+    var size1 = div1.clientWidth;
+    var size2 = div1.clientWidth;
+    var size3 = div1.clientWidth;
+    var size4 = div1.clientWidth;
+    var size5 = div1.clientWidth;
+    var size6 = div1.clientWidth;
+    var size7 = div1.clientWidth;
+    var size8 = div1.clientWidth;
     if (counter) {
       div1.style.transition = "transform 0.1s ease-in-out";
       div2.style.transition = "transform 0.1s ease-in-out";
@@ -227,7 +229,15 @@ function photoSlider() {
 
   });
   rightShift.addEventListener('click', function animate() {
-    if (counter <= 7) {
+    var size1 = div1.clientWidth;
+    var size2 = div1.clientWidth;
+    var size3 = div1.clientWidth;
+    var size4 = div1.clientWidth;
+    var size5 = div1.clientWidth;
+    var size6 = div1.clientWidth;
+    var size7 = div1.clientWidth;
+    var size8 = div1.clientWidth;
+    if (counter <= 5) {
       div1.style.transition = "transform 0.1s ease-in-out";
       div2.style.transition = "transform 0.1s ease-in-out";
       div3.style.transition = "transform 0.1s ease-in-out";
@@ -249,22 +259,50 @@ function photoSlider() {
   });
 
 
-  function showButton(x) {
+  function showButtonMid(x) {
     if (x.matches) {
       // If media query matches
       rightShift.style.display = 'block';
       leftShift.style.display = 'block';
-      div1.style.margin = '0px 5% 0px 5%';
-      div2.style.margin = '0px 5% 0px 5%';
-      div3.style.margin = '0px 5% 0px 5%';
-      div4.style.margin = '0px 5% 0px 5%';
-      div5.style.margin = '0px 5% 0px 5%';
-      div6.style.margin = '0px 5% 0px 5%';
-      div7.style.margin = '0px 5% 0px 5%';
-      div8.style.margin = '0px 5% 0px 5%';
+      photoCar.style.display = 'grid';
+      photoCar.style.gridTemplateColumns = 'repeat(8,25%)'
+      photoCar.style.gridColumnGap = '0.25em';
     } else {
       rightShift.style.display = 'none';
       leftShift.style.display = 'none';
+      photoCar.style.gridTemplateColumns = 'repeat(8,1fr)';
+      photoCar.style.gridColumnGap = '0.25em';
+      photoCar.style.width = '100%';
+      photoCar.style.marginRight = '50px';
+      photoCar.style.marginLeft = '50px;';
+      photoCar.style.marginBottom = '50px;';
+      div1.style.margin = '0px 5px 0px 5px';
+      div2.style.margin = '0px 5px 0px 5px';
+      div3.style.margin = '0px 5px 0px 5px';
+      div4.style.margin = '0px 5px 0px 5px';
+      div5.style.margin = '0px 5px 0px 5px';
+      div6.style.margin = '0px 5px 0px 5px';
+      div7.style.margin = '0px 5px 0px 5px';
+      div8.style.margin = '0px 5px 0px 5px';
+    }
+  }
+  function showButtonSmall(y){
+    if (y.matches) {
+      // If media query matches
+      rightShift.style.display = 'block';
+      leftShift.style.display = 'block';
+      photoCar.style.display = 'grid';
+      photoCar.style.gridTemplateColumns = 'repeat(8,50%)'
+      photoCar.style.gridColumnGap = '0.25em';
+    } else {
+      rightShift.style.display = 'none';
+      leftShift.style.display = 'none';
+      photoCar.style.gridTemplateColumns = 'repeat(8,1fr)';
+      photoCar.style.gridColumnGap = '0.25em';
+      photoCar.style.width = '100%';
+      photoCar.style.marginRight = '50px';
+      photoCar.style.marginLeft = '50px;';
+      photoCar.style.marginBottom = '50px;';
       div1.style.margin = '0px 5px 0px 5px';
       div2.style.margin = '0px 5px 0px 5px';
       div3.style.margin = '0px 5px 0px 5px';
@@ -276,8 +314,10 @@ function photoSlider() {
     }
   }
 
-  var x = window.matchMedia("(max-width: 1000px)")
-  showButton(x);
-  x.addListener(showButton);
+  var x = window.matchMedia("(max-width: 900px)");
+  var y = window.matchMedia("(max-width: 500px)");
+  showButtonMid(x);
+  x.addListener(showButtonMid);
+  y.addListener(showButtonSmall);
 }
 photoSlider();
